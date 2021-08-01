@@ -1,0 +1,12 @@
+Classes - timetable, class teacher, class student
+Teacher - Profile, Classes, timetable
+Student - Profile, Attendance
+School Menu - 
+Notice board - 
+Settings
+Contact Books - Staff,
+
+
+class_routine/1
+student_information/1
+teacher_list

@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Purchase Order Pdf" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b9c2f44a-f972-40b5-8042-7fa075df5b16">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="390"/>
+	<parameter name="sql" class="java.lang.String"/>
+	<parameter name="logo" class="java.lang.String"/>
+	<parameter name="overall_behaviour" class="java.lang.String"/>
+	<parameter name="incident_date" class="java.lang.String"/>
+	<parameter name="incident_action" class="java.lang.String"/>
+	<parameter name="class_teacher" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT s.student_id,s.name,s.sex,s.date_of_admission,sch.school_id,sch.school_name, sch.logo,
+
+sch.website,sch.email,sch.address,sch.telephone,now() as tdate, e.class_id,c.name classname
+
+
+
+FROM student s JOIN school sch ON sch.school_id = s.school_id
+
+JOIN enroll e ON e.student_id = s.student_id
+
+JOIN class c ON c. class_id = e.class_id
+
+
+
+WHERE s.student_id LIKE 12443]]>
+	</queryString>
+	<field name="student_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sex" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="date_of_admission" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="school_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="school_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="logo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="website" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="address" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telephone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tdate" class="java.sql.Timestamp"/>
+	<field name="class_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="classname" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="223" splitType="Stretch">
+			<rectangle>
+				<reportElement x="3" y="88" width="261" height="56" uuid="966a34d8-44b2-47be-8fcf-69bad5fdd855"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="205" width="555" height="17" backcolor="#0099CC" uuid="47391f1e-2020-4ce3-8e3d-cac7a4fe7b3b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="24" y="210" width="69" height="12" forecolor="#FFFFFF" uuid="8de9993d-d511-4aa8-b4dc-cb41a2149560"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Subject]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="77" width="554" height="1" forecolor="#003333" uuid="530b9bf3-69c6-4964-a26c-c7aa73ec9b92"/>
+				<graphicElement>
+					<pen lineWidth="1.5" lineStyle="Solid" lineColor="#009999"/>
+				</graphicElement>
+			</line>
+			<image scaleImage="FillFrame" hAlign="Center" vAlign="Middle" onErrorType="Blank">
+				<reportElement stretchType="RelativeToBandHeight" x="233" y="3" width="64" height="42" uuid="ecbd3768-3e66-4764-a654-2086d88960b3"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="3" y="123" width="261" height="1" uuid="0c19b767-4044-40d9-8398-fe34ced293a7"/>
+			</line>
+			<line>
+				<reportElement x="104" y="88" width="1" height="56" uuid="29a445ce-d523-4e8c-9196-b7d2847a0797"/>
+			</line>
+			<rectangle>
+				<reportElement x="278" y="89" width="257" height="55" uuid="2a07f932-6199-43eb-9e0f-a2b364dd6295"/>
+			</rectangle>
+			<line>
+				<reportElement x="278" y="106" width="257" height="1" uuid="10a64fd5-4d63-44ef-8da7-5fc08cf45a88"/>
+			</line>
+			<line>
+				<reportElement x="422" y="89" width="1" height="55" uuid="fa96b1d5-8bc1-49fb-982e-9598f8fa6dad"/>
+			</line>
+			<line>
+				<reportElement x="1" y="176" width="554" height="1" forecolor="#003333" uuid="d7bb5a68-171b-4384-9cb7-9a773d0399b1"/>
+				<graphicElement>
+					<pen lineWidth="1.5" lineStyle="Solid" lineColor="#009999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="5" y="90" width="73" height="16" forecolor="#50B19E" uuid="1297f721-2ae2-4125-bfaf-f38c6602d567"/>
+				<textElement>
+					<font fontName="Britannic Bold" size="13" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="107" width="44" height="16" forecolor="#50B19E" uuid="19afdb88-26f9-4c1d-9bca-6caf809afb5c"/>
+				<textElement>
+					<font fontName="Britannic Bold" size="14" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Class]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="125" width="97" height="16" forecolor="#50B19E" uuid="ed8851fb-e5d4-4865-b1c0-c7c31005f9f1"/>
+				<textElement>
+					<font fontName="Britannic Bold" size="14" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Class Teacher]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="90" width="150" height="16" forecolor="#50B19E" uuid="e4d8eff9-f4be-4d69-afbf-869380cb0dda"/>
+				<textElement>
+					<font fontName="Britannic Bold" size="14" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Overall Performance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="281" y="107" width="120" height="16" forecolor="#50B19E" uuid="7c2b2c0f-a507-4ee9-97e1-190c7a160310"/>
+				<textElement>
+					<font fontName="Britannic Bold" size="14" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Last Exam]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="177" width="533" height="16" forecolor="#50B19E" uuid="dfb5f70d-7459-4e17-acfb-e9d9e60631eb"/>
+				<textElement>
+					<font fontName="Britannic Bold" size="14" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[RESULTS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="263" y="210" width="29" height="12" forecolor="#FFFFFF" uuid="7eb78e39-da42-4d28-901c-0046649f6888"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="209" width="35" height="12" forecolor="#FFFFFF" uuid="8bc838d5-cb8a-4197-84b4-4ac64824e3a6"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Position]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="106" width="261" height="1" uuid="9ce5a7b4-dbe1-43af-a055-5e59b76ae96f"/>
+			</line>
+			<line>
+				<reportElement x="1" y="192" width="554" height="1" forecolor="#003333" uuid="5870c306-a5bd-488e-b731-0dd0395c1dba"/>
+				<graphicElement>
+					<pen lineWidth="1.5" lineStyle="Solid" lineColor="#009999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="105" y="128" width="156" height="10" uuid="52442985-e556-46dd-a980-9c2c1122c36d"/>
+				<textElement>
+					<font fontName="Britannic Bold" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{class_teacher}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="278" y="124" width="257" height="1" uuid="78359f9c-2a44-4ca5-a136-707d84c63d2d"/>
+			</line>
+			<staticText>
+				<reportElement x="281" y="128" width="120" height="16" forecolor="#50B19E" uuid="235083e5-f751-43ae-ad78-b4af579e150f"/>
+				<textElement>
+					<font fontName="Britannic Bold" size="14" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Grade]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="105" y="91" width="160" height="14" uuid="17b22262-6468-47e0-bef6-45918d20b0a8"/>
+				<textElement>
+					<font fontName="Britannic Bold" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="109" width="156" height="12" uuid="24fb381e-8468-417e-b616-479f016e8f42"/>
+				<textElement>
+					<font fontName="Britannic Bold" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{classname}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="262" y="205" width="1" height="17" uuid="a78f7399-a382-4232-b992-b6449d79c693"/>
+			</line>
+			<staticText>
+				<reportElement x="305" y="209" width="29" height="11" forecolor="#FFFFFF" uuid="c5d09413-7ecb-4d4c-a091-c07f2973ea4b"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Grade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="382" y="210" width="47" height="11" forecolor="#FFFFFF" uuid="10f56733-06cb-4351-af41-69b0d4b7e18e"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Remarks]]></text>
+			</staticText>
+			<line>
+				<reportElement x="303" y="205" width="1" height="18" uuid="1e46bf2a-df16-4ed1-bb19-6ceb933065e9"/>
+			</line>
+			<line>
+				<reportElement x="336" y="205" width="1" height="18" uuid="943e9aec-14dc-4f81-9353-30fb06141bb3"/>
+			</line>
+			<line>
+				<reportElement x="381" y="205" width="1" height="18" uuid="d2450508-3924-40d7-81c6-a69866f1dbd8"/>
+			</line>
+			<line>
+				<reportElement x="23" y="205" width="1" height="17" uuid="5d0f7f02-684e-490a-bdcb-483170ec759e"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<rectangle>
+				<reportElement x="1" y="0" width="22" height="14" backcolor="#0099CC" uuid="23a79ea6-4c06-4ec2-bad8-017474c5bab5"/>
+			</rectangle>
+			<line>
+				<reportElement x="1" y="15" width="555" height="1" uuid="a142e9c4-a793-4a1f-8fc8-652b6224edc7"/>
+			</line>
+			<textField>
+				<reportElement x="4" y="3" width="19" height="12" forecolor="#FFFFFF" uuid="d457e951-9885-452f-bf19-fcb64ec2282d"/>
+				<textElement>
+					<font size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="555" y="-18" width="1" height="34" uuid="a8bfe283-d601-4ec2-a561-c17f19fb5926"/>
+			</line>
+			<line>
+				<reportElement x="262" y="-1" width="1" height="17" uuid="dfadbedf-d13a-4aae-94aa-415a99f9ca9a"/>
+			</line>
+			<line>
+				<reportElement x="303" y="-1" width="1" height="16" uuid="9d14d6ca-47f0-4403-a2d6-6d0f8a37dae5"/>
+			</line>
+			<line>
+				<reportElement x="381" y="-1" width="1" height="17" uuid="ff6a3f32-fe87-4dd2-8719-342427d4aa2e"/>
+			</line>
+			<line>
+				<reportElement x="336" y="0" width="1" height="16" uuid="75d8a98c-ffd3-4862-ad98-3902264a4521"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="133" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="15" width="554" height="1" forecolor="#003333" uuid="698bdb24-c4c3-4724-a452-62a7ab40fdd3"/>
+				<graphicElement>
+					<pen lineWidth="1.5" lineStyle="Solid" lineColor="#009999"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="29" width="554" height="1" forecolor="#003333" uuid="be99391e-1d6e-446c-b749-e0d68d00586b"/>
+				<graphicElement>
+					<pen lineWidth="1.5" lineStyle="Solid" lineColor="#009999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="78" y="0" width="84" height="16" forecolor="#000000" uuid="802824d4-8f6e-4417-b5f1-754243d52d8a"/>
+				<textElement>
+					<font fontName="Britannic Bold" size="13" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Total Score]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="0" width="84" height="16" forecolor="#000000" uuid="76671be4-c95f-4e7c-a935-610e3c616637"/>
+				<textElement>
+					<font fontName="Britannic Bold" size="13" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Average]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="269" y="0" width="84" height="16" forecolor="#000000" uuid="c5bc8139-1eae-4ffc-a62c-21693abc67f6"/>
+				<textElement>
+					<font fontName="Britannic Bold" size="13" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Grade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="0" width="84" height="16" forecolor="#000000" uuid="355bd7ca-0f6a-4c40-948e-0b84ea50b6d2"/>
+				<textElement>
+					<font fontName="Britannic Bold" size="13" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Overal Rank]]></text>
+			</staticText>
+			<line>
+				<reportElement x="336" y="56" width="218" height="1" forecolor="#003333" uuid="3ed4a145-829d-45ab-af9f-c266b014d362"/>
+				<graphicElement>
+					<pen lineWidth="1.5" lineStyle="Solid" lineColor="#009999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="334" y="29" width="107" height="33" forecolor="#000000" uuid="2efa79e1-493a-4ec0-b76d-a52ce4d6e299"/>
+				<textElement>
+					<font fontName="Britannic Bold" size="13" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[CLASS TEACHER REMARKS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="62" width="82" height="16" forecolor="#000000" uuid="56dd45ce-30af-4f67-8263-eb08f4f0eb8d"/>
+				<textElement>
+					<font fontName="Britannic Bold" size="13" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Academics]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="80" width="84" height="16" forecolor="#000000" uuid="3013396e-3052-400d-8ff7-24d1844fb27c"/>
+				<textElement>
+					<font fontName="Britannic Bold" size="13" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Activities]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="98" width="84" height="16" forecolor="#000000" uuid="738923f5-c703-4b6a-9ffd-64dd7c28500b"/>
+				<textElement>
+					<font fontName="Britannic Bold" size="13" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Conduct]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="62" width="84" height="16" forecolor="#000000" uuid="4cec2edf-0dd1-41e2-b860-bad978fd1850"/>
+				<textElement textAlignment="Right">
+					<font fontName="Britannic Bold" size="13" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Work Harder]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="82" width="84" height="16" forecolor="#000000" uuid="2e0b6183-903f-43b5-8084-01d477c38f0d"/>
+				<textElement textAlignment="Right">
+					<font fontName="Britannic Bold" size="13" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Good]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="98" width="84" height="16" forecolor="#000000" uuid="2216f88e-91ca-4f0c-9b18-df4c705ef519"/>
+				<textElement textAlignment="Right">
+					<font fontName="Britannic Bold" size="13" isBold="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Excellent]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="113" width="554" height="1" forecolor="#003333" uuid="1f8369b7-e440-4b5e-bd7b-fd8aa6d45f35"/>
+				<graphicElement>
+					<pen lineWidth="1.5" lineStyle="Solid" lineColor="#009999"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="1" y="127" width="554" height="1" forecolor="#003333" uuid="d19b831f-d2cc-4313-bd63-f2078432fe82"/>
+				<graphicElement>
+					<pen lineWidth="1.5" lineStyle="Solid" lineColor="#009999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="1" y="114" width="553" height="16" forecolor="#50B19E" uuid="ed32807a-3c2b-4e84-94b4-0b9b9a039eb1"/>
+				<textElement textAlignment="Center">
+					<font fontName="Britannic Bold" size="14" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[GRADING SYSTEM]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="66" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="10" width="555" height="1" uuid="4708c9b5-c758-4174-89cc-f56c970949c8"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="155" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="78" width="553" height="16" forecolor="#50B19E" uuid="ba232d17-e7ce-4498-a07d-942eb7d01958"/>
+				<textElement textAlignment="Center">
+					<font fontName="Britannic Bold" size="14" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[GRADING SYSTEM]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

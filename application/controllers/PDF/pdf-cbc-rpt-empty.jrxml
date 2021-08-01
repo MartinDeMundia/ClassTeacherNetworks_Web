@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Purchase Order Pdf" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b9c2f44a-f972-40b5-8042-7fa075df5b16">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="sql" class="java.lang.String"/>
+	<parameter name="logo" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT * FROM cbc_report_design WHERE class =2]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="topic_number" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="topic_title" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="topic_description" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="parent" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="date_created" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sort" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="157" splitType="Stretch">
+			<staticText>
+				<reportElement x="143" y="0" width="274" height="20" forecolor="#000000" backcolor="#000000" uuid="48483c19-867f-4784-bb54-6c6c619ca941"/>
+				<textElement textAlignment="Center">
+					<font fontName="Bookman Old Style" size="16" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[MATHEMATICS ASSESSMENT]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="23" y="0" width="100" height="20" uuid="944235fa-15d0-44b8-a959-cd6077c67537"/>
+				<textFieldExpression><![CDATA[$F{topic_title}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<rectangle>
+				<reportElement x="1" y="0" width="22" height="14" backcolor="#0099CC" uuid="23a79ea6-4c06-4ec2-bad8-017474c5bab5"/>
+			</rectangle>
+			<line>
+				<reportElement x="1" y="15" width="555" height="1" uuid="a142e9c4-a793-4a1f-8fc8-652b6224edc7"/>
+			</line>
+			<textField>
+				<reportElement x="4" y="3" width="19" height="12" forecolor="#FFFFFF" uuid="d457e951-9885-452f-bf19-fcb64ec2282d"/>
+				<textElement>
+					<font size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="555" y="-18" width="1" height="34" uuid="a8bfe283-d601-4ec2-a561-c17f19fb5926"/>
+			</line>
+			<staticText>
+				<reportElement x="33" y="0" width="100" height="20" uuid="b01899d5-c4c6-47ae-88a5-1aa86920db56"/>
+				<text><![CDATA[topic_title]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="133" y="0" width="100" height="20" uuid="96fa6b51-65f3-48d5-aac5-f62365706265"/>
+				<textFieldExpression><![CDATA[$F{topic_title}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="250" y="0" width="100" height="20" uuid="a427cee4-8ca4-4f55-bd9e-672149707b1b"/>
+				<text><![CDATA[parent]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="364" y="0" width="100" height="20" uuid="50f435c5-26cb-4f49-9deb-4cdc45e8ec36"/>
+				<textFieldExpression><![CDATA[$F{parent}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="21" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="51" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="4" splitType="Stretch"/>
+	</summary>
+</jasperReport>

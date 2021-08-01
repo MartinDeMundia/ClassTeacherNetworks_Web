@@ -1,0 +1,6 @@
+Day(ie:monday),Is Break(yes/no),Break Title(skip_if_not_break),Start Time(h:i),End Time(h:i),Class,Stream,Subject
+MONDAY,YES,,8,9,1,S,SOCIAL STUDIES
+TUESDAY,YES,,8,10,2,B,SOCIAL STUDIES
+WEDNESDAY,YES,,9,11,3,L,SOCIAL STUDIES
+THURSDAY,YES,,2,3,1,S,ENGLISH
+FRIDAY,YES,,11,12,2,B,MATHEMATICS
